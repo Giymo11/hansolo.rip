@@ -1,0 +1,11 @@
+#!/bin/bash
+
+docker stop nginx
+docker stop nginx-gen
+docker stop nginx-letsencrypt
+docker stop nginx-static
+
+docker rm nginx
+docker rm nginx-gen
+docker rm nginx-letsencrypt
+docker rm nginx-static
