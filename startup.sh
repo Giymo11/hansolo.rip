@@ -5,6 +5,7 @@ docker run -d -p 80:80 -p 443:443 \
     -v $(pwd)/volumes/nginx/certs:/etc/nginx/certs:ro \
     -v $(pwd)/volumes/nginx/vhost.d:/etc/nginx/vhost.d \
     -v $(pwd)/volumes/nginx/html:/usr/share/nginx/html \
+    -v $(pwd)/volumes/nginx/conf.d:/etc/nginx/conf.d \
     -v /var/run/docker.sock:/tmp/docker.sock:ro \
     jwilder/nginx-proxy
 
@@ -22,3 +23,11 @@ docker run -d \
     -e "LETSENCRYPT_EMAIL=gizmo.head@yahoo.de" \
     -v $(pwd)/volumes/static:/usr/share/nginx/html \
     nginx
+
+docker ps
+
+docker start nginx-proxy
+docker start nginx-proxy-letsencrypt
+docker start nginx-static
+
+docker ps
