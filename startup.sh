@@ -1,9 +1,5 @@
 #!/bin/bash
 
-mkdir -p /etc/nginx/conf.d
-mkdir -p /etc/nginx/vhost.d
-mkdir -p /
-
 docker run -d -p 80:80 -p 443:443 \
     --name nginx-proxy \
     -v $(pwd)/volumes/nginx/certs:/etc/nginx/certs:ro \
@@ -26,5 +22,3 @@ docker run -d \
     -e "LETSENCRYPT_EMAIL=gizmo.head@yahoo.de" \
     -v $(pwd)/volumes/static:/usr/share/nginx/html \
     nginx
-
-
